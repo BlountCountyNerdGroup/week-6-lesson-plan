@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<head>
+    <title>Databases</title>
+
+    <!-- This CSS library called Bootstrap gives me an quick way to create the interface -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+
+    <!-- The formatting we give to our webpage -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="mainWrapper">
+        <h1>Todos: </h1>
+
+        <div id="addTodoWrapper">
+            <div class="btn btn-dark" id="addTodoButton" onclick="addTodo()">Add Todo</div>
+            <input type="text" class="form-control" id="newTodo">   
+        </div>
+
+        <hr>
+
+        <div id="loadNames">
+            <a class="btn btn-primary btn-sm" href="#" onclick="loadTodos()">Load</a>
+        </div>
+    </div>
+
+    <ol id="todos"></ol>
+</div>
+
+</body>
+
+<!-- this links to Firebase, the database we're using -->
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAVjSMQNbAzuQBWdY3YBFUn4Xz453r2FI4",
+    authDomain: "fire-database-lesson.firebaseapp.com",
+    databaseURL: "https://fire-database-lesson.firebaseio.com",
+    projectId: "fire-database-lesson",
+    storageBucket: "",
+    messagingSenderId: "339528843357"
+  };
+  firebase.initializeApp(config);
+</script>
+
+<!-- functions that I made for you guys, but you can look at if you want -->
+<script src="./premade.js"></script>
+
+<!-- this is where your code is -->
+<script src="./database_lesson.js"></script>
+
+<!-- this links to a javascript library called JQuery which we'll use for animations -->
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+<!-- Here's where we'll use JQuery to make the animations -->
+<script src="animations.js"></script>
+</html>
