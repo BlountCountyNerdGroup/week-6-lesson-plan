@@ -26,7 +26,7 @@ var superCoolVariable = myArray[0];
 
 // ----------------------------------------------------------------------
 // |                                                                    |
-// |                TODO: add practice with arrays here                 |  
+// |                TODO: add practice with objects here                |
 // |                                                                    |
 // ----------------------------------------------------------------------
 
@@ -48,16 +48,14 @@ function addTodo() {
     if (todoText != "") {
 
         // save it to the database
-        firebase
-            .database()
-            .ref('/')
-            .push(todoText)
-            .then(function(snapshot) { // .then() means that after it's done, do the following code:
-
-                createTodoHTML(todoText, snapshot.key);
-            }); 
+        firebase.database().ref('/').push(todoText); 
     }
 }
+
+// this means that when firebase gets a new value, it will give us new data
+firebase.database().ref('/').on('value', function(snapshot) {
+    overWriteTodos(snapshot.val());
+});
 
 function overWriteTodos(todos) {
     console.log(todos); // console.log this out
@@ -83,7 +81,18 @@ function loadTodos() {
 // this should run as soon as we load the page
 loadTodos();
 
-// this means that when firebase gets a new value, it will give us new data
-firebase.database().ref('/').on('value', function(snapshot) {
-    overWriteTodos(snapshot.val());
-});
+// functions for deleting a todo. We might not use these during the lesson
+
+function createDeleteButton(id) {
+
+    // this is really ugly code
+    var deleteButton = "<a href='#' onclick='deleteTodo(\"" + id + "\")'>X</a>";
+
+    return deleteButton;
+}
+
+function deleteTodo(id) {
+    firebase.database().ref('/').child(id).remove();
+
+    loadTodos();
+}

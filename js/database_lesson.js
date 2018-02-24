@@ -1,20 +1,20 @@
-// Sometimes when we're programming, we need to save information for later
-// whether we're saving our current location in a game or maybe amount of points.
-// Or maybe we're building a image sharing site and we need to store images
+// Sometimes when we're programming, we need a way to create something to store information about something
+// for instance, what if I wanted to create a variable to contain my age, name, interests, etc.?
+// this type of variable would contain numbers and also strings 
+// so it can't just be a primitive variable (number, string, boolean)
+// One advanced variable type that can do this for us is called an Object
 
-// let's start with talking about how we would save a list of information in the first place
-// we would probably want to create an array. Does anyone remember what an array is? 
-//     A. (list of data that can be added to)
+var person = {
+    name: "Garrett",
+    age: 17,
+    sport: "frisbee"
+}
 
-var myArray = ["Vanilla", "Chocolate", "Strawberry"];
+// this lets us nicely bundle the variables together:
+console.log(person.name);
+console.log(person.age);
+console.log(person.sport);
 
-// if we want to access a specific element, we write
-myArray[0]; // or 1 or 2
-
-// if we want to store that in a variable, how would we do it?
-//     A. just write `var someVarName = ` in front of it like this
-
-var superCoolVariable = myArray[0];
 
 // however, any variables we create are wiped when we refresh the page
 // because of that, if we have data that we want to save and keep, we have to use some kind of database
@@ -24,17 +24,14 @@ var superCoolVariable = myArray[0];
 // For instance, if you're wanting to allow everyone on the internet to have access to the data, you
 // would want to have a database stored somewhere on the internet open to the public.
 
-// ----------------------------------------------------------------------
-// |                                                                    |
-// |                TODO: add practice with arrays here                 |  
-// |                                                                    |
-// ----------------------------------------------------------------------
+// Today we'll be using Firebase, which is a free database service owned by Google
+// (this means that if you have a google account, you already have a Firebase account)
 
 function createTodoHTML(todo) {
 
     // create a li (stands for line) in our webpage to put the todo in
     var todoDiv = document.createElement('li');
-    todoDiv.innerHTML = todo; // don't include 2nd part if we're not going to use it
+    todoDiv.innerHTML = todo;
 
     // add our newly created li to the todos section on our webpage
     document.getElementById('todos').appendChild(todoDiv);

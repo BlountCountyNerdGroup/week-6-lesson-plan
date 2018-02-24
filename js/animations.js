@@ -15,5 +15,6 @@ $(document).ready(function() {
     $('#addTodoButton').on("click", function() {
         todoInputExpanded = false;
         $('#newTodo').animate({width:'toggle'}, 500);
+        $('#newTodo').val("")
     });
 });

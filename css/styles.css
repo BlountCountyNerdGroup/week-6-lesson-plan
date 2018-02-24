@@ -14,7 +14,6 @@ body {
 #addTodoWrapper {
     display: flex;
     flex-direction: row;
-    width: 100%;
     justify-content: center;
 }
 
@@ -24,7 +23,6 @@ body {
 
 #newTodo {
     display: none;
-    width: 75%;
 }
 
 #saveName {
